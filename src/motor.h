@@ -1,3 +1,9 @@
+//MDに関する参考サイト
+//https://os.mbed.com/users/inst/code/NewMD2/wiki/GMD
+
+//0.3秒間通信がないとMDがタイムアウトするので問題がある場合はタイマー割込みを使うなどして対応する
+//参考 : http://zattouka.net/GarageHouse/micon/Arduino/TIMERtoLED/TIMERtoLED.htm
+
 
 class MOTOR{
     public:

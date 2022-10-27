@@ -3,7 +3,7 @@
 
 void MOTOR::move(int power[4]){
     for(int i=0;i<4;i++){
-        power[i]*=m_correction[i];
+        power[i]*=m_correction[i]/100;
         if(power[i]>127) power[i]=127;
         else if(power[i]<-128) power[i]=-128;
         Wire.beginTransmission(Address[i]);
