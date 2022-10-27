@@ -1,9 +1,9 @@
-#include <Arduino.h>
 
 class MOTOR{
     public:
         void move(int power[4]);
         void cal(int dir,int speed);
+        void stop();
         int m_speed[4];
     private:
         const int Address[4]={0x08,0x10,0x12,0x14};  //アドレス

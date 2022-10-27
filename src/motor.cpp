@@ -26,3 +26,10 @@ void MOTOR::cal(int dir,int speed){
         m_speed[i]*=speed/MAX_;
     }
 }
+
+void MOTOR::stop(){
+    for(int i=0;i<4;i++){
+        m_speed[i]=0;
+    }
+    move(m_speed);
+}
