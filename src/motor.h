@@ -16,3 +16,15 @@ class MOTOR{
         const float m_correction[4]={100,100,100,100};  //補正　速すぎる場合小さく，逆転する場合マイナスに
         const int m_dir[4]={-45,45,135,-135};  //モーターの取り付け角度　　-45:左前，45:右前，135:右後，-135:左後
 };
+
+class encoder{
+    public:
+        void Setpin(int,int);
+        long value;
+        bool state[2];
+        void reset();
+        void read();
+    private:
+        int pin[2];
+};
+

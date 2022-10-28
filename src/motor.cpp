@@ -33,3 +33,31 @@ void MOTOR::stop(){
     }
     move(m_speed);
 }
+
+void encoder::Setpin(int n1,int n2){
+    pin[0]=n1;
+    pin[1]=n2;
+}
+
+void encoder::reset(){
+    this->value=0;
+}
+
+void encoder::read(){
+    bool a=digitalRead(pin[0]),b=digitalRead(pin[1]);
+    if(a!=state[0]){
+        if(a!=b){
+            value++;
+        }else{
+            value--;
+        }
+    }else if(b!=state[1]){
+        if(a!=b){
+            value--;
+        }else{
+            value++;
+        }
+    }
+    state[0]=a;
+    state[1]=b;
+}

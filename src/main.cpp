@@ -9,8 +9,12 @@ int Dir;
 int Speed;
 
 MOTOR motor;
+encoder x_encoder;
+encoder y_encoder;
 
 void setup() {
+  x_encoder.Setpin(D3,D4);
+  y_encoder.Setpin(D5,D6);
   Wire.begin();
   Serial.begin(9600);
 }
@@ -21,6 +25,11 @@ void loop() {
   Speed = sqrt(x_speed * x_speed + y_speed * y_speed);
   motor.cal(Dir, Speed);
   motor.move(motor.m_speed);
+  x_encoder.read();
+  y_encoder.read();
+  Serial.print(x_encoder.value);
+  Serial.print("  ");
+  Serial.println(y_encoder.value);
 }
 
 void pc_control() {
